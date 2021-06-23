@@ -1,0 +1,25 @@
+{% extends 'lista.html' %}
+{% block columnas %}
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Cantidad Subsidios</th>
+        <th scope="col">Cantidad Consumo</th>
+        <th scope="col">Recibo de luz</th>
+        <th scope="col">Beneficiario</th>
+    </tr>
+{% endblock %}
+
+{% block filas %}
+    {% for sub in object_list %}
+        <tr>
+            <td>{{ sub.id }}</td>
+            <td>{{ sub.cantidad_subsidio }}</td>
+            <td>{{ sub.cantidad_consumo }}</td>
+            <td class="text-center">
+
+                <img src="/recibos/recibosLuz/recibo.jpg" class="img-fluid d-block mx-auto" style="width: 30px; height: 30px">
+            </td>
+            <td>{{ sub.pertenece.nombre }}</td  >
+        </tr>
+    {% endfor %}
+{% endblock %}

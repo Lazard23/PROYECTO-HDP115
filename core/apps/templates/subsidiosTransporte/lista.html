@@ -1,0 +1,26 @@
+{% extends 'lista.html' %}
+{% block columnas %}
+    <tr>
+        <th scope="col" style="width: 5%">Id</th>
+        <th scope="col" style="width: 15%">Cantidad Subsidios</th>
+        <th scope="col" style="width: 10%">Cantidad Buses</th>
+        <th scope="col" style="width: 10%">Cantidad Microbuses</th>
+        <th scope="col" style="width: 15%">Frecuencia de uso</th>
+        <th scope="col" style="width: 10%">DUI Beneficiario</th>
+        <th scope="col" style="width: 20%">Beneficiario</th>
+    </tr>
+{% endblock %}
+
+{% block filas %}
+    {% for sub in object_list %}
+        <tr>
+            <td align="center">{{ sub.id }}</td>
+            <td align="center">{{ sub.cantidad_subsidio }}</td>
+            <td align="center">{{ sub.cantidad_buses }}</td>
+            <td align="center">{{ sub.cantidad_microbuses }}</td>
+            <td align="center">{{ sub.frecuencia_uso }}</td>
+            <td align="center">{{ sub.pertenece.dui }}</td>
+            <td align="center">{{ sub.pertenece.nombre }}</td>
+        </tr>
+    {% endfor %}
+{% endblock %}
